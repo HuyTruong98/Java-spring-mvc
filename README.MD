@@ -1,2 +1,2 @@
-# Java Spring Starter template
+# Java Spring-MVC Starter
 
