@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.domain;
 
+// folder domain means folder Entity or Modal 
+
 import jakarta.persistence.Entity; // Entity is provided by JPA, it is JPA (Java persistence API) write & store data in db
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
