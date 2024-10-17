@@ -1,6 +1,6 @@
 package vn.hoidanit.laptopshop.domain;
 
-import jakarta.persistence.Entity; // it is JPA 
+import jakarta.persistence.Entity; // Entity is provided by JPA, it is JPA (Java persistence API) write & store data in db
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
