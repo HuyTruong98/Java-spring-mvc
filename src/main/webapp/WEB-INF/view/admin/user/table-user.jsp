@@ -37,7 +37,7 @@
                 <tbody>
                   <tr>
                     <th>1</th>
-                    <th>Mark</th>
+                    <th>Mark-teen</th>
                     <th>Otto</th>
                     <td>
                       <button class="btn btn-success">View</button>
