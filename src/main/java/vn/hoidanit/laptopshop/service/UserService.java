@@ -28,8 +28,8 @@ public class UserService {
   }
 
   public User handleSaveUser(User user) {
-    User userTest = this.userRepository.save(user);
-    System.out.println(userTest);
-    return userTest;
+    User createUser = this.userRepository.save(user);
+    System.out.println(createUser);
+    return createUser;
   }
 }

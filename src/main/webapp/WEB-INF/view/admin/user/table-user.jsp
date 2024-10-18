@@ -35,26 +35,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th>1</th>
-                    <th>Mark-teen</th>
-                    <th>Otto</th>
-                    <td>
-                      <button class="btn btn-success">View</button>
-                      <button class="btn btn-warning">Update</button>
-                      <button class="btn btn-danger">Delete</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>2</th>
-                    <th>Jacob</th>
-                    <th>Thornton</th>
-                    <td>
-                      <button class="btn btn-success">View</button>
-                      <button class="btn btn-warning">Update</button>
-                      <button class="btn btn-danger">Delete</button>
-                    </td>
-                  </tr>
+                  <c:forEach var="user" items="${users1}">
+                    <tr>
+                      <th>${user.id}</th>
+                      <th>${user.email}</th>
+                      <th>${user.fullName}</th>
+                      <td>
+                        <button class="btn btn-success">View</button>
+                        <button class="btn btn-warning">Update</button>
+                        <button class="btn btn-danger">Delete</button>
+                      </td>
+                    </tr>
+                  </c:forEach>
                 </tbody>
               </table>
             </div>
