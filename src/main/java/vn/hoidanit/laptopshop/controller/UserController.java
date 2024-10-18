@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -38,13 +39,12 @@ public class UserController {
 
   @RequestMapping("/admin/user/{id}")
   public String getUserDetailPage(Model model, @PathVariable long id) {
-    System.out.println("check path id = " + id);
-
-    model.addAttribute("id", id);
+    User userById = this.userService.getUserById(id);
+    model.addAttribute("userById", userById);
     return "admin/user/user-detail";
   }
 
-  @RequestMapping("/admin/user/create")
+  @RequestMapping("/admin/user/create") // GET
   public String getCreateUserPage(Model model) {
     model.addAttribute("newUser", new User());
     return "admin/user/create";
@@ -55,4 +55,25 @@ public class UserController {
     this.userService.handleSaveUser(user);
     return "redirect:/admin/user";
   }
+
+  @RequestMapping("/admin/user/update/{id}")
+  public String getUpdateUserPage(Model model, @PathVariable long id) {
+    User currentUser = this.userService.getUserById(id);
+    model.addAttribute("newUser", currentUser);
+    return "admin/user/update";
+  }
+
+  @PostMapping("/admin/user/update")
+  public String postUpdateUserPage(Model model, @ModelAttribute("newUser") User user) {
+    User currentUser = this.userService.getUserById(user.getId());
+    if (currentUser != null) {
+      currentUser.setPhone(user.getPhone());
+      currentUser.setAddress(user.getAddress());
+      currentUser.setFullName(user.getFullName());
+
+      this.userService.handleSaveUser(user);
+    }
+    return "redirect:/admin/user";
+  }
+
 }
