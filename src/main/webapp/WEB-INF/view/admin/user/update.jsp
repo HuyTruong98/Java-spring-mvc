@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Email:</label>
-                  <form:input path="email" type="email" class="form-control" />
+                  <form:input path="email" type="email" class="form-control" disabled="true" />
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Phone Number:</label>

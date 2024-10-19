@@ -33,7 +33,10 @@ public class UserService {
 
   public User handleSaveUser(User user) {
     User createUser = this.userRepository.save(user);
-    System.out.println(createUser);
     return createUser;
+  }
+
+  public void deleteByUser(long id) {
+    this.userRepository.deleteById(id);
   }
 }
