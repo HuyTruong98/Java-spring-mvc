@@ -1,11 +1,16 @@
 package vn.hoidanit.laptopshop.domain;
 
+import java.util.List;
+
 // folder domain means folder Entity or Modal 
 
 import jakarta.persistence.Entity; // Entity is provided by JPA, it is JPA (Java persistence API) write & store data in db
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,6 +27,14 @@ public class User {
   private String phone;
 
   private String avatar;
+
+  // User many -> to one -> role
+  @ManyToOne
+  @JoinColumn(name = "role_id")
+  private Role role;
+
+  @OneToMany(mappedBy = "user")
+  private List<Order> orders;
 
   // Getters and Setters
   public long getId() {
