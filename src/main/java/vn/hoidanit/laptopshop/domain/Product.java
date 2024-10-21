@@ -16,8 +16,8 @@ public class Product {
   private String name;
   private double price;
   private String image;
-  private String detailDesc;
-  private String shortDesc;
+  // private String detailDesc;
+  // private String shortDesc;
   private long quantity;
   private long sold;
   private String factory;
@@ -56,22 +56,6 @@ public class Product {
     this.image = image;
   }
 
-  public String getDetailDesc() {
-    return detailDesc;
-  }
-
-  public void setDetailDesc(String detailDesc) {
-    this.detailDesc = detailDesc;
-  }
-
-  public String getShortDesc() {
-    return shortDesc;
-  }
-
-  public void setShortDesc(String shortDesc) {
-    this.shortDesc = shortDesc;
-  }
-
   public long getQuantity() {
     return quantity;
   }
@@ -107,9 +91,8 @@ public class Product {
   // toString method
   @Override
   public String toString() {
-    return "Products [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + ", detailDesc="
-        + detailDesc + ", shortDesc=" + shortDesc + ", quantity=" + quantity + ", sold=" + sold + ", factory=" + factory
-        + ", target=" + target + "]";
+    return "Product [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + ", quantity=" + quantity
+        + ", sold=" + sold + ", factory=" + factory + ", target=" + target + "]";
   }
 
 }
