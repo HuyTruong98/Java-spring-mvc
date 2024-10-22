@@ -6,7 +6,7 @@
 
       <head>
         <meta charset="UTF-8">
-        <title>Delete ${id}</title>
+        <title>User Detail ${userById.id}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -31,22 +31,23 @@
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="d-flex justify-content-between">
-                        <h3>Delete the user width id: ${id}</h3>
+                        <h3>User Detail with id: ${userById.id}</h3>
                       </div>
+
                       <hr />
-
-                      <div class="alert alert-danger">
-                        Are you sure to delete this user ?
-                      </div>
-
-                      <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
-                        <div class="mb-3" style="display: none;">
-                          <label class="form-label">Id:</label>
-                          <form:input path="id" type="text" class="form-control" value="${id}" />
+                      <div class="card" style="width: 60%">
+                        <div class="card-header">
+                          User information
                         </div>
-
-                        <button class="btn btn-danger">Confirm</button>
-                      </form:form>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${userById.id}</li>
+                          <li class="list-group-item">Email: ${userById.email}</li>
+                          <li class="list-group-item">Full Name: ${userById.fullName}</li>
+                          <li class="list-group-item">Address: ${userById.address}</li>
+                          <li class="list-group-item">Phone Number: ${userById.phone}</li>
+                        </ul>
+                      </div>
+                      <a href="/admin/user" class="btn btn-success mt-3">Back</a>
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@
 
       <head>
         <meta charset="UTF-8">
-        <title>Delete ${id}</title>
+        <title>Table Users</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -27,26 +27,39 @@
                   <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                   <li class="breadcrumb-item active">Users</li>
                 </ol>
-                <div class="container mt-5">
+                <div class="mt-5">
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="d-flex justify-content-between">
-                        <h3>Delete the user width id: ${id}</h3>
+                        <h3>Table Users</h3>
+                        <a href="/admin/user/create" class="btn btn-primary">Create a user</a>
                       </div>
+
                       <hr />
-
-                      <div class="alert alert-danger">
-                        Are you sure to delete this user ?
-                      </div>
-
-                      <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
-                        <div class="mb-3" style="display: none;">
-                          <label class="form-label">Id:</label>
-                          <form:input path="id" type="text" class="form-control" value="${id}" />
-                        </div>
-
-                        <button class="btn btn-danger">Confirm</button>
-                      </form:form>
+                      <table class="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Email</th>
+                            <th>Full Name</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <c:forEach var="user" items="${users1}">
+                            <tr>
+                              <th>${user.id}</th>
+                              <th>${user.email}</th>
+                              <th>${user.fullName}</th>
+                              <td>
+                                <a href="/admin/user/${user.id}" class="btn btn-success">View</a>
+                                <a href="/admin/user/update/${user.id}" class="btn btn-warning mx-2">Update</a>
+                                <a href="/admin/user/delete/${user.id}" class="btn btn-danger">Delete</a>
+                              </td>
+                            </tr>
+                          </c:forEach>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
