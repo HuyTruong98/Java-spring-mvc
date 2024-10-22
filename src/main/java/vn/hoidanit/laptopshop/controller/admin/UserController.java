@@ -18,9 +18,10 @@ import vn.hoidanit.laptopshop.service.UserService;
 
 @Controller
 public class UserController {
-  private final UserService userService;
-  private final UploadService uploadService;
+  private final UserService userService; // dependency
+  private final UploadService uploadService; // dependency
 
+  // Constructor Injection
   public UserController(UserService userService, UploadService uploadService) {
     this.userService = userService;
     this.uploadService = uploadService;
