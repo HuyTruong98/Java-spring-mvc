@@ -32,29 +32,40 @@
                     <div class="col-md-6 col-12 mx-auto">
                       <h3>Update a user</h3>
                       <hr />
-                      <form:form method="post" action="/admin/user/update" modelAttribute="newUser">
+                      <form:form method="post" action="/admin/user/update" modelAttribute="newUser" class="row"
+                        enctype="multipart/form-data">
                         <div class="mb-3" style="display: none;">
                           <label class="form-label">Id:</label>
                           <form:input path="id" type="text" class="form-control" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Email:</label>
                           <form:input path="email" type="email" class="form-control" disabled="true" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Phone Number:</label>
                           <form:input path="phone" type="text" class="form-control" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Full Name:</label>
                           <form:input path="fullName" type="text" class="form-control" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Address:</label>
                           <form:input path="address" type="text" class="form-control" />
                         </div>
 
-                        <button type="submit" class="btn btn-warning">Update</button>
+                        <div class="mb-3 col-12 col-md-6">
+                          <label class="form-label">Role:</label>
+                          <form:select class="form-select" path="role.name">
+                            <form:option value="ADMIN">ADMIN</form:option>
+                            <form:option value="USER">USER</form:option>
+                          </form:select>
+                        </div>
+
+                        <div class="col-12 mb-5">
+                          <button type="submit" class="btn btn-warning">Update</button>
+                        </div>
                       </form:form>
                     </div>
                   </div>
