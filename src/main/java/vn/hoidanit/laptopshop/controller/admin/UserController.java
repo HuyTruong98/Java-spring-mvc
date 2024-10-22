@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +19,16 @@ import vn.hoidanit.laptopshop.service.UserService;
 
 @Controller
 public class UserController {
+  private final PasswordEncoder passwordEncoder;
   private final UserService userService; // dependency
   private final UploadService uploadService; // dependency
 
-  // Constructor Injection
-  public UserController(UserService userService, UploadService uploadService) {
+  // Constructor Injection => đây là mô hình dependence injection
+  public UserController(UserService userService, UploadService uploadService,
+      PasswordEncoder passwordEncoder) {
     this.userService = userService;
     this.uploadService = uploadService;
+    this.passwordEncoder = passwordEncoder;
   }
 
   @RequestMapping("/")
@@ -60,7 +64,11 @@ public class UserController {
   public String createUserPage(Model model, @ModelAttribute("newUser") User user,
       @RequestParam("fileAvatar") MultipartFile file) {
     String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-    // this.userService.handleSaveUser(user);
+    String hashPassword = this.passwordEncoder.encode(user.getPassword());
+    user.setPassword(hashPassword);
+    user.setAvatar(avatar);
+    user.setRole(this.userService.getRoleByName(user.getRole().getName()));
+    this.userService.handleSaveUser(user);
     return "redirect:/admin/user";
   }
 
