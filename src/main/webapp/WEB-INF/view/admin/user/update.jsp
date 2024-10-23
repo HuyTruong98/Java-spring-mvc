@@ -54,7 +54,6 @@
                           <label class="form-label">Address:</label>
                           <form:input path="address" type="text" class="form-control" />
                         </div>
-
                         <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Role:</label>
                           <form:select class="form-select" path="role.name">
