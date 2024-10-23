@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -15,13 +18,31 @@ public class Product {
   private long id;
 
   @NotNull
+  @NotEmpty(message = "Name not be null !")
   private String name;
 
   @NotNull
+  @DecimalMin(value = "0", inclusive = false, message = "Price must be greater than 0")
   private double price;
 
-  @NotNull
+  @NotNull(message = "Quantity not be null !")
+  @Min(value = 1, message = "Quantity must be at least 1!")
+  private long quantity;
+
   private String image;
+
+  @NotNull
+  @NotEmpty(message = "detailDesc not be null !")
+  private String detailDesc;
+
+  @NotNull
+  @NotEmpty(message = "shortDesc not be null !")
+  private String shortDesc;
+  private long sold;
+  private String factory;
+  private String target;
+
+  // Getters and Setters
 
   public String getDetailDesc() {
     return detailDesc;
@@ -39,14 +60,6 @@ public class Product {
     this.shortDesc = shortDesc;
   }
 
-  private String detailDesc;
-  private String shortDesc;
-  private long quantity;
-  private long sold;
-  private String factory;
-  private String target;
-
-  // Getters and Setters
   public long getId() {
     return id;
   }

@@ -16,11 +16,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
           $(document).ready(() => {
-            const avatarFile = $("#avatarFile");
-            avatarFile.change(function (e) {
+            const productFile = $("#productFile");
+            productFile.change(function (e) {
               const imgURL = URL.createObjectURL(e.target.files[0]);
-              $("#avatarPreview").attr("src", imgURL);
-              $("#avatarPreview").css({ "display": "block" });
+              $("#productPreview").attr("src", imgURL);
+              $("#productPreview").css({ "display": "block" });
             });
           });
         </script>
@@ -45,28 +45,54 @@
                       <hr />
                       <form:form method="post" action="/admin/product/create" modelAttribute="newProduct" class="row"
                         enctype="multipart/form-data">
+                        <c:set var="errorName">
+                          <form:errors path="name" cssClass="invalid-feedback" />
+                        </c:set>
+                        <c:set var="errorPrice">
+                          <form:errors path="price" cssClass="invalid-feedback" />
+                        </c:set>
+                        <c:set var="errorDetailDesc">
+                          <form:errors path="detailDesc" cssClass="invalid-feedback" />
+                        </c:set>
+                        <c:set var="errorShortDesc">
+                          <form:errors path="shortDesc" cssClass="invalid-feedback" />
+                        </c:set>
+                        <c:set var="errorQuantity">
+                          <form:errors path="quantity" cssClass="invalid-feedback" />
+                        </c:set>
+
                         <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Name:</label>
-                          <form:input path="name" type="text" class="form-control" />
+                          <form:input path="name" type="text"
+                            class="form-control ${not empty errorName ? 'is-invalid' : ''}" />
+                          ${errorName}
                         </div>
                         <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Price:</label>
-                          <form:input path="price" type="text" class="form-control" />
+                          <form:input path="price" type="text"
+                            class="form-control ${not empty errorPrice ? 'is-invalid' : ''}" />
+                          ${errorPrice}
                         </div>
 
                         <div class="mb-3 col-12">
                           <label for="detailDesc">Detail Description:</label>
-                          <form:textarea path="detailDesc" class="form-control" />
+                          <form:textarea path="detailDesc"
+                            class="form-control ${not empty errorDetailDesc ? 'is-invalid' : ''}" />
+                          ${errorDetailDesc}
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Short Description:</label>
-                          <form:input path="shortDesc" type="text" class="form-control" />
+                          <form:input path="shortDesc" type="text"
+                            class="form-control ${not empty errorShortDesc ? 'is-invalid' : ''}" />
+                          ${errorShortDesc}
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Quantity:</label>
-                          <form:input path="quantity" type="number" class="form-control" />
+                          <form:input path="quantity" type="number"
+                            class="form-control ${not empty errorQuantity ? 'is-invalid' : ''}" />
+                          ${errorQuantity}
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
@@ -93,12 +119,12 @@
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
-                          <label for="avatarFile" class="form-label">Image:</label>
-                          <input class="form-control" type="file" id="avatarFile" accept=".png, .jpg, .jpeg"
-                            name="fileAvatar" />
+                          <label for="productFile" class="form-label">Image:</label>
+                          <input class="form-control" type="file" id="productFile" accept=".png, .jpg, .jpeg"
+                            name="fileProduct" />
                         </div>
                         <div class="col-12 mb-3">
-                          <img style="max-height: 250px; display: none;" alt="avatar preview" id="avatarPreview" />
+                          <img style="max-height: 250px; display: none;" alt="product preview" id="productPreview" />
                         </div>
                         <div class="col-12 mb-5">
                           <button type="submit" class="btn btn-primary">Create</button>
