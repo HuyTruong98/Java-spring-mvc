@@ -108,7 +108,7 @@
                                 <p class="text-dark fs-5 fw-bold mb-0">${product.price}</p>
                                 <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                     class="fa fa-shopping-bag me-2 text-primary"></i>
-                                  add to cart</a>
+                                  Add to cart</a>
                               </div>
                             </div>
                           </div>
