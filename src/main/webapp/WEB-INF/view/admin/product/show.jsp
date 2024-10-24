@@ -31,7 +31,7 @@
                   <div class="col-12 mx-auto">
                     <div class="d-flex justify-content-between">
                       <h3>Table Products</h3>
-                      <a href="/admin/product/create" class="btn btn-primary">Create a Product</a>
+                      <a href="/admin/product/create" class="btn btn-primary">Create a product</a>
                     </div>
 
                     <hr />

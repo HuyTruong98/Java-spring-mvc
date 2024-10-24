@@ -47,8 +47,13 @@
                           <form:input path="phone" type="text" class="form-control" />
                         </div>
                         <div class="mb-3 col-12 col-md-6">
+                          <c:set var="errorFullName">
+                            <form:errors path="fullName" cssClass="invalid-feedback" />
+                          </c:set>
                           <label class="form-label">Full Name:</label>
-                          <form:input path="fullName" type="text" class="form-control" />
+                          <form:input path="fullName" type="text"
+                            class="form-control ${not empty errorPassword ? 'is-invalid' : ''}" />
+                          ${errorFullName}
                         </div>
                         <div class="mb-3 col-12 col-md-6">
                           <label class="form-label">Address:</label>

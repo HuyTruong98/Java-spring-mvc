@@ -19,8 +19,16 @@ public class ProductService {
     return this.productRepository.findAll();
   }
 
-  public Product handleSave(Product product) {
+  public Product handleSaveProduct(Product product) {
     Product createProduct = this.productRepository.save(product);
     return createProduct;
+  }
+
+  public Product getProductById(long id) {
+    return this.productRepository.findById(id);
+  }
+
+  public void deleteProductById(long id) {
+    this.productRepository.deleteById(id);
   }
 }
