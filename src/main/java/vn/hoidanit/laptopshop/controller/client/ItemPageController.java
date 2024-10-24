@@ -24,4 +24,5 @@ public class ItemPageController {
     model.addAttribute("id", id);
     return "client/product/detail";
   }
+
 }
