@@ -22,32 +22,32 @@
           <div id="layoutSidenav_content">
             <main>
               <div class="container-fluid px-4">
-                <h1 class="mt-4">Manage Users</h1>
+                <h1 class="mt-4">Manage Products</h1>
                 <ol class="breadcrumb mb-4">
                   <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                  <li class="breadcrumb-item active">Users</li>
+                  <li class="breadcrumb-item active">Products</li>
                 </ol>
                 <div class="container mt-5">
                   <div class="row">
                     <div class="col-12 mx-auto">
                       <div class="d-flex justify-content-between">
-                        <h3>User Detail with id: ${userById.id}</h3>
+                        <h3>Product Detail with id: ${product.id}</h3>
                       </div>
 
                       <hr />
                       <div class="card" style="width: 60%">
+                        <img class="card-img-top" src="/images/product/${product.image}" alt="Card image cap" />
+
                         <div class="card-header">
-                          User information
+                          Product information
                         </div>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${userById.id}</li>
-                          <li class="list-group-item">Email: ${userById.email}</li>
-                          <li class="list-group-item">Full Name: ${userById.fullName}</li>
-                          <li class="list-group-item">Address: ${userById.address}</li>
-                          <li class="list-group-item">Phone Number: ${userById.phone}</li>
+                          <li class="list-group-item">ID: ${product.id}</li>
+                          <li class="list-group-item">Name: ${product.name}</li>
+                          <li class="list-group-item">Price: ${product.price}</li>
                         </ul>
                       </div>
-                      <a href="/admin/user" class="btn btn-success my-3">Back</a>
+                      <a href="/admin/product" class="btn btn-success my-3">Back</a>
                     </div>
                   </div>
                 </div>
