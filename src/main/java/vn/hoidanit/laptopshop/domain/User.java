@@ -28,11 +28,11 @@ public class User {
   private String email;
 
   @NotNull
-  @Size(min = 2, message = "Password must be at least 2 characters!")
+  @Size(min = 3, message = "Password must be at least 3 characters!")
   private String password;
 
   @NotNull
-  @Size(min = 2, message = "Full Name must be at least 2 characters!")
+  @Size(min = 3, message = "Full Name must be at least 3 characters!")
   private String fullName;
 
   private String address;
